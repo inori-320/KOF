@@ -1,3 +1,4 @@
-# web project
-A web page which I use for practice.<br>
-Fighting!!!!!<br>
+# King of Fighters
+A web page which I use for practice.\
+Fighting!!!!!\
+add a charactor: kyo kasanagi.\

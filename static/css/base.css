@@ -1,6 +1,7 @@
 #kof {
-    width: 1600px;
-    height: 900px;
-
-    /* background-image: ; */
+    width: 1280px;
+    height: 720px;
+    background-image: url('/static/images/background/classical.gif');
+    background-size: 200% 100%;
+    background-position: top;
 }
