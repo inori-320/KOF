@@ -6,7 +6,7 @@ class KOF {
         this.$kof = $('#' + id);
 
         this.gamemap = new GameMap(this);
-        this.Player = [
+        this.Players = [
             new Kusanagi(this, {
                 x: 200, y: 0, id: 0, width: 120, height: 200
             }),
