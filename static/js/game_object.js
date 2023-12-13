@@ -37,7 +37,6 @@ function game_objects_frame(timestamp) {
             obj.update();
         }
     }
-
     last_timestamp = timestamp;
     requestAnimationFrame(game_objects_frame);
 }

@@ -22,6 +22,9 @@ export class Player extends GameObject {
         this.frame_current_cnt = 0; // 帧编号，当前记录了多少帧
         this.last_frame_cnt = 0;
         this.hp = 100;  // 血量
+        this.maxhp = 100;   // 最大血量
+        this.$hp_red = this.root.$kof.find(`.player${this.id}_hp>.red`);     // 获取红底血条，用于更新（美化用）
+        this.$hp_green = this.root.$kof.find(`.player${this.id}_hp>.red>.green`);   // 获取绿色血条，用于更新现有血量
 
         this.pressed_keys = this.root.gamemap.PlayerControl.pressed_keys;       // 记录这一帧按下的键
         this.start();
@@ -44,6 +47,7 @@ export class Player extends GameObject {
             this.vy = 0;
         }
         if (this.x < 0) {
+            console.log(this.id);
             this.x = 0;
         }
         if (this.x + this.width > this.ctx.canvas.width) {
@@ -70,7 +74,7 @@ export class Player extends GameObject {
         }
 
         if (this.status === 0 || this.status === 1 || this.status === 2) {
-            if (space) {
+            if (space && this.frame_current_cnt - this.last_frame_cnt > 100) {
                 this.status = 4;
                 this.vx = 0;
                 this.frame_current_cnt = 0;
@@ -93,7 +97,6 @@ export class Player extends GameObject {
                 } else {
                     this.status = 2;
                 }
-
             } else if (a) {
                 this.vx = -this.speedx;
                 if (this.direction === 1) {
@@ -139,9 +142,12 @@ export class Player extends GameObject {
         }
         this.status = 5;
         this.frame_current_cnt = 0;
-        this.hp -= 50;
+        this.hp -= 15;
+        this.$hp_green.animate({ width: this.$hp_red.parents().width() * this.hp / 100 }, 300);
+        this.$hp_red.animate({ width: this.$hp_red.parents().width() * this.hp / 100 }, 1000);
         if (this.hp <= 0) {
             this.status = 6;
+            this.vx = this.vy = 0;
             this.frame_current_cnt = 0;
         }
     }

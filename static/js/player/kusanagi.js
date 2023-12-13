@@ -4,7 +4,6 @@ import { GIF } from "../utils.js";
 export class Kusanagi extends Player {
     constructor(root, info) {
         super(root, info);
-
         this.init_animations();
     }
 
@@ -17,8 +16,8 @@ export class Kusanagi extends Player {
             gif.load(`/static/images/player/kusanagi/${action[i]}.gif`);
             this.animation.set(i, {
                 'gif': gif,
-                'frame_cnt': 0,     // 动画的帧数=(60%frame_cnt)
-                'frame_rate': 15,    // 每frame_rate渲染一次，即角色的帧率=(60/fream_rate)
+                'frame_cnt': 1,     // 动画的帧数=(60%frame_cnt)
+                'frame_rate': 13,    // 每frame_rate渲染一次，即角色的帧率=(60/fream_rate)
                 'offset_y': y_offset[i],      // y轴方向的偏移量
                 'loaded': false,     // 模型是否加载完成 
                 'scale': 2

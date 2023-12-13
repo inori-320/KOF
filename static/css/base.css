@@ -4,4 +4,77 @@
     background-image: url('/static/images/background/classical.gif');
     background-size: 200% 100%;
     background-position: top;
+    position: absolute;
+}
+
+#kof>.head {
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+#kof>.head>.player0_hp {
+    height: 30px;
+    width: calc(50% - 80px);
+    margin-left: 40px;
+    border-radius: 20px 0 0 20px;
+    box-sizing: border-box;
+    border: rgba(128, 128, 128, 0.7) 3px solid;
+}
+
+#kof>.head>.player1_hp {
+    height: 30px;
+    width: calc(50% - 60px);
+    border-radius: 0 20px 20px 0;
+    box-sizing: border-box;
+    border: rgba(128, 128, 128, 0.7) 3px solid;
+}
+
+#kof>.head>.time {
+    height: 50px;
+    width: 60px;
+    background-color: rgba(255, 165, 0, 0.7);
+    border-radius: 20%;
+    box-sizing: border-box;
+    border: rgba(255, 255, 255, 0.7) 5px double;
+    color: firebrick;
+    font-size: 25px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 40px;
+    user-select: none;
+}
+
+#kof>.head>.player0_hp>.red>.green {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px 0 0 20px;
+    background-color: rgba(144, 238, 144, 0.8);
+    float: right;
+}
+
+#kof>.head>.player1_hp>.red>.green {
+    height: 100%;
+    width: 100%;
+    border-radius: 0 20px 20px 0;
+    background-color: rgba(144, 238, 144, 0.8);
+}
+
+#kof>.head>.player0_hp>.red {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px 0 0 20px;
+    background-color: rgba(240, 128, 128, 0.8);
+    float: right;
+}
+
+#kof>.head>.player1_hp>.red {
+    height: 100%;
+    width: 100%;
+    border-radius: 0 20px 20px 0;
+    background-color: rgba(240, 128, 128, 0.8);
 }
