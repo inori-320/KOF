@@ -1,24 +1,49 @@
 <template>
-    <div class="card">
-        <dic class="card-body">
+    <div class="card info">
+        <div class="card-body">
             <div class="row">
                 <div class="col-3">
-                    <img class="img-fluid" src="../assets/inori.jpg" alt="head">
+                    <img width="50px" src="../assets/inori.jpg" alt="head">
                 </div>
                 <div class="col-9">
-                    <div id="username">lty</div>
-                    <div id="fans">number of fans: 999</div>
-                    <button type="button" class="btn btn-success btn-sm">subscribe</button>
+                    <div id="username">{{fullName}}</div>
+                    <div id="fans">number of fans: {{ user.followers }}</div>
+                    <button @click="unfollow" v-if="user.is_followed" type="button" class="btn btn-secondary btn-sm">unsubscribe</button>
+                    <button @click="follow" v-if="!user.is_followed" type="button" class="btn btn-success btn-sm">+subscribe</button>
                 </div>
             </div>            
-        </dic>
+        </div>
     </div>
-
 </template>
 
 <script>
+import { computed } from 'vue';
+
 export default {
     name: "DynamicsInfo",
+    props: {
+        user: {
+            type: Object,
+            required: true,
+        }
+    },
+    setup(props, context){
+        let fullName = computed(() => props. user.firstname + ' ' + props.user.lastname);
+        
+        const follow = () => {
+            context.emit("follow");
+        }
+
+        const unfollow = () => {
+            context.emit("unfollow");
+        }
+
+        return {
+            follow,
+            unfollow,
+            fullName,
+        }
+    }
 }
 </script>
 
@@ -39,5 +64,9 @@ img{
 button{
     padding: 2px 4px;
     font-size: 13px;
+}
+
+.info{
+    margin-bottom: 15px;
 }
 </style>
