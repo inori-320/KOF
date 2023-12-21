@@ -13,29 +13,33 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/userlist',
+    path: '/userlist/',
     name: 'userlist',
     component: UserList
   },
   {
-    path: '/dynamics',
+    path: '/dynamics/:userId/',
     name: 'dynamics',
     component: UserDynamics
   },
   {
-    path: '/login',
+    path: '/login/',
     name: 'login',
     component: Login
   },
   {
-    path: '/notfound',
+    path: '/notfound/',
     name: 'notfound',
     component: NotFound
   },
   {
-    path: '/register',
+    path: '/register/',
     name: 'register',
     component: UserRegister
+  },
+  {
+    path: '/:catchAll(.*)/',
+    redirect: '/notfound/',
   }
 ];
  

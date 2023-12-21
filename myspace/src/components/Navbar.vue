@@ -13,16 +13,21 @@
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{name: 'userlist'}">Friends</router-link>
                     </li>
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="{name: 'dynamics'}">Dynamics</router-link>
-                    </li>
                 </ul>
-                <ul class="navbar-nav">
+                <ul class="navbar-nav" v-if="!$store.state.user.is_login">
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{name: 'login'}">Login</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{name: 'register'}">Register</router-link>
+                    </li>
+                </ul>
+                <ul class="navbar-nav" v-else>
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="{name: 'dynamics', params: {userId: $store.state.user.id}}">{{$store.state.user.username}}</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" @click="logout" style="cursor: pointer;" :to="{name: 'login'}">Logout</router-link>
                     </li>
                 </ul>
             </div>
@@ -31,9 +36,19 @@
 </template>
 
 <script>
+import { useStore } from 'vuex';
+
 export default {
     name: "NavBar",
-
+    setup(){
+        const store = useStore();
+        const logout = () => {
+            store.commit("logout");
+        };
+        return {
+            logout,
+        }
+    }
 }
 </script>
 

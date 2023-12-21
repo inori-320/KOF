@@ -2,11 +2,11 @@
     <div class="card info">
         <div class="card-body">
             <div class="row">
-                <div class="col-3">
-                    <img width="50px" src="../assets/inori.jpg" alt="head">
+                <div class="col-3 img_field">
+                    <img class="img-fluid" :src="user.photo" alt="head">
                 </div>
                 <div class="col-9">
-                    <div id="username">{{fullName}}</div>
+                    <div id="username">{{user.username}}</div>
                     <div id="fans">number of fans: {{ user.followers }}</div>
                     <button @click="unfollow" v-if="user.is_followed" type="button" class="btn btn-secondary btn-sm">unsubscribe</button>
                     <button @click="follow" v-if="!user.is_followed" type="button" class="btn btn-success btn-sm">+subscribe</button>
@@ -17,8 +17,6 @@
 </template>
 
 <script>
-import { computed } from 'vue';
-
 export default {
     name: "DynamicsInfo",
     props: {
@@ -28,8 +26,6 @@ export default {
         }
     },
     setup(props, context){
-        let fullName = computed(() => props. user.firstname + ' ' + props.user.lastname);
-        
         const follow = () => {
             context.emit("follow");
         }
@@ -41,7 +37,6 @@ export default {
         return {
             follow,
             unfollow,
-            fullName,
         }
     }
 }
@@ -68,5 +63,11 @@ button{
 
 .info{
     margin-bottom: 15px;
+}
+
+.img_field{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 </style>

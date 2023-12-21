@@ -18,6 +18,9 @@ import BaseContent from '../components/BaseContent.vue';
 import DynamicsInfo from '../components/DynamicsInfo.vue';
 import DynamicsPosts from '../components/DynamicsPosts.vue';
 import DynamicsWrites from '../components/DynamicsWrites.vue';
+import { useRoute } from 'vue-router';
+import $ from 'jquery';
+import { useStore } from 'vuex';
 
 export default {
     name: "UserDynamics",
@@ -29,18 +32,42 @@ export default {
     },
 
     setup(){
-        const user = reactive({
-            username: "yuzuriha inori",
-            lastname: "inori",
-            firstname: "yuzuriha",
-            followers: 0,
-            is_followed: false,
+        const route = useRoute();
+        const userId = route.params.userId;
+        const store = useStore();
+        const user = reactive({});
+        const posts = reactive({});
+
+        $.ajax({
+            url: "https://app165.acapp.acwing.com.cn/myspace/getinfo/",
+            type: "GET",
+            data: {
+                user_id: userId,
+            },
+            headers:{
+                "Authorization": "Bearer " + store.state.user.access,
+            },
+            success(resp){
+                user.id = resp.id;
+                user.username = resp.username;
+                user.photo = resp.photo;
+                user.followers = resp.followerCount;
+                user.is_followed = resp.is_followed;
+            },
         });
-        
-        const posts = reactive({
-            count: 0,
-            posts:[
-            ]
+
+        $.ajax({
+            url:"https://app165.acapp.acwing.com.cn/myspace/post/",
+            type: "GET",
+            data:{
+                user_id: userId,
+            },
+            headers:{
+                "Authorization": "Bearer " + store.state.user.access,
+            },
+            success(resp){
+                posts.posts = resp;
+            }
         });
 
         const follow = () => {
