@@ -49,7 +49,6 @@ const ModuleUser = {
                 success(resp) {
                     const {access, refresh} = resp;
                     const access_obj = jwtDecode(access);
-                    console.log(access_obj, refresh);
 
                     setInterval(() => {
                         $.ajax({

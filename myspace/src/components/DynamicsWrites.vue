@@ -10,12 +10,15 @@
 
 <script>
 import { ref } from 'vue';
+import $ from 'jquery';
+import { useStore } from 'vuex';
 
 export default {
     name: "DynamicWrites",
     setup(props, context){
         let content = ref('');
-
+        const store = useStore();
+        
         const submit_post = () => {
             let is_post = false;
             for(let i = 0; i < content.value.length; i++){
@@ -24,9 +27,23 @@ export default {
                 }
             }
             if(is_post){
-                context.emit("submit_post", content.value);              
+                $.ajax({
+                    url:"https://app165.acapp.acwing.com.cn/myspace/post/",
+                    type: "POST",
+                    data:{
+                        content: content.value,
+                    },
+                    headers:{
+                        "Authorization": "Bearer " + store.state.user.access,
+                    },
+                    success(resp){
+                        if(resp.result === "success"){
+                            context.emit("submit_post", content.value);
+                            content.value = "";
+                        }
+                    }
+                });
             }
-            content.value = "";
         }
 
         return {

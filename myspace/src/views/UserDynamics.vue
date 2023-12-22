@@ -3,10 +3,10 @@
         <div class="row">
             <div class="col-3">
                 <DynamicsInfo @follow="follow" @unfollow="unfollow" :user="user" />
-                <DynamicsWrites @submit_post="submit_post" />
+                <DynamicsWrites v-if="is_me"  @submit_post="submit_post" />
             </div>
             <div class="col-9">
-                <DynamicsPosts :posts="posts"/>
+                <DynamicsPosts :user="user" :posts="posts" @delete_post="delete_post"/>
             </div>
         </div>
     </BaseContent>
@@ -21,6 +21,7 @@ import DynamicsWrites from '../components/DynamicsWrites.vue';
 import { useRoute } from 'vue-router';
 import $ from 'jquery';
 import { useStore } from 'vuex';
+import { computed } from 'vue';
 
 export default {
     name: "UserDynamics",
@@ -66,6 +67,7 @@ export default {
                 "Authorization": "Bearer " + store.state.user.access,
             },
             success(resp){
+                posts.count = resp.length;
                 posts.posts = resp;
             }
         });
@@ -91,12 +93,21 @@ export default {
             });
         }
 
+        const delete_post = (post_id) => { 
+            posts.posts = posts.posts.filter(post => post.id !== post_id);
+            posts.count = posts.posts.length;
+        }
+
+        const is_me = computed(() => userId == store.state.user.id);
+
         return {
             user: user,
             follow,
             unfollow,
             posts,
             submit_post,
+            is_me,
+            delete_post,
         }
     }
 }
