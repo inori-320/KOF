@@ -1,0 +1,176 @@
+img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+}
+
+p {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    /* background-color: lightcoral; */
+}
+
+.blue_p {
+    background-color: lightblue;
+}
+
+.green_p {
+    background-color: lightgreen;
+}
+
+.small {
+    width: 70px;
+    height: 70px;
+}
+
+div {
+
+    background-color: aquamarine;
+    margin: 10px;
+}
+
+#first_div {
+    background-color: brown;
+}
+
+#second_p {
+    background-color: coral;
+}
+
+.button {
+    width: 50px;
+    height: 25px;
+}
+
+.button:hover {
+    transform: scale(2);
+    transition: 200ms;
+}
+
+#first_div:hover {
+    background-color: darkorchid;
+    transition: 500ms;
+}
+
+input:focus {
+    background-color: lightblue;
+}
+
+input:hover {
+    width: 30px;
+    height: 20px;
+}
+
+/* 位置选择器，当父节点的第n个元素为对应块时生效 */
+p:nth-child(2n + 1) {
+    background-color: blueviolet;
+}
+
+div:target {
+    background-color: forestgreen;
+}
+
+ul>li>ul {
+    color: red;
+}
+
+li::before {
+    content: "《";
+}
+
+li::after {
+    content: "》";
+}
+
+h4 {
+    text-align: center;
+}
+
+#postery {
+    background-color: white;
+    text-align: center;
+    line-height: 1.5rem;
+    letter-spacing: 1rem;
+    text-shadow: 5px 5px 2px gray;
+    text-decoration: green underline dotted;
+}
+
+#postery>div:nth-child(1) {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 100;
+}
+
+a {
+    text-decoration: none;
+}
+
+#picture {
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+    background-image: url('/static/images/head.jpg');
+    background-size: 195px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-style: dotted;
+    border-width: 5px;
+    border-color: brown;
+    border-radius: 30px;
+    margin: 10ox;
+    padding: 10px;
+}
+
+#textoverflow {
+    width: 100px;
+    height: 200px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#outor {
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+    margin: 20px;
+    /* padding: 5px; */
+    overflow: hidden;
+}
+
+#inner {
+    width: 50px;
+    height: 50px;
+    margin: 70px auto;
+    background-color: blue;
+}
+
+.final {
+    width: 200px;
+    height: 200px;
+    float: right;
+}
+
+* {
+    clear: both;
+}
+
+a:link {
+    color: chocolate;
+}
+
+a:visited {
+    color: aqua
+}
+
+a:hover {
+    color: green;
+}
+
+a:active {
+    color: lightseagreen;
+}

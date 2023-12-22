@@ -1,0 +1,195 @@
+#user_card {
+    width: 200px;
+    height: 67.35px;
+    background-color: rgb(237, 245, 253);
+    margin: 100px auto;
+    padding: 5px 6px 7px 7px;
+    box-sizing: border-box;
+    border-radius: 3%;
+}
+
+#head {
+    width: 32px;
+    height: 32px;
+    border-radius: 10%;
+}
+
+#user_card_head {
+    font-size: 12px;
+    color: #6A737C;
+    margin: 1px 0 4px 0;
+}
+
+#user_card_body_photo {
+    float: left;
+}
+
+#user_card_body_detail {
+    float: left;
+    margin-left: 8px;
+}
+
+#user_card_body_detail_name {
+    height: 16px;
+    line-height: 16px;
+    border-bottom: 4px;
+}
+
+#user_card_body_detail_name>a {
+    font-size: 13px;
+    color: #0074CC;
+    text-decoration: none;
+}
+
+#user_card_body_detail_reputation {
+    font-size: 12px;
+    color: #838C95;
+    height: 16px;
+    line-height: 16px;
+}
+
+.rep_num_rep {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin: 0px 3px 0px 2px;
+    display: inline-block;
+    position: relative;
+    top: -1px;
+}
+
+/* ------------------------------------------------------------ */
+
+#card {
+    width: 366px;
+    height: 215px;
+    box-shadow: 2px 2px 5px lightgray;
+    border-radius: 5px;
+    margin: 50px auto;
+}
+
+#card_img {
+    background-image: url('/static/images/background.PNG');
+    background-size: cover;
+    width: 100%;
+    height: 85px;
+}
+
+#card_info {
+    width: 100%;
+    height: calc(100% - 85px);
+    box-sizing: border-box;
+    padding-top: 12px;
+}
+
+#card_info_head {
+    width: 70px;
+    height: 100%;
+    float: left;
+    text-align: center;
+}
+
+#card_info_head img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+#card_info_name {
+    width: calc(100% - 70px);
+    height: 100%;
+    float: left;
+}
+
+#name a {
+    text-decoration: none;
+    color: palevioletred;
+    padding-left: 10px;
+
+}
+
+#sex {
+    position: relative;
+    top: 2px;
+}
+
+#level a {
+    text-decoration: none;
+    color: red;
+    font-size: 11px;
+    font-weight: bold;
+    position: relative;
+    bottom: 1.5px;
+    font-style: italic;
+}
+
+#vip {
+    background-color: palevioletred;
+    width: 50px;
+    height: 15px;
+    padding-top: 1.2px;
+    text-align: center;
+    color: white;
+    font-size: 8px;
+    font-weight: bold;
+    margin-left: 3px;
+    box-sizing: border-box;
+    /* padding: 1px; */
+    border-radius: 2px;
+    position: relative;
+    top: -4px
+}
+
+#sex {
+    margin-top: 1px;
+}
+
+#sex img {
+    width: 17px;
+}
+
+#card_info_rep {
+    padding: 5px 0 7px 0;
+    box-sizing: border-box;
+}
+
+.card_info_rep_rep {
+    margin-right: 20px;
+}
+
+.card_info_rep_rep>span:nth-child(1) {
+    font-size: 12px;
+}
+
+.card_info_rep_rep>span:nth-child(2) {
+    font-size: 12px;
+    color: gray;
+}
+
+#card_info_btn {
+    box-sizing: border-box;
+}
+
+#card_info_btn button {
+    width: 102px;
+    height: 30px;
+    margin: 0 10px 0 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: rgb(159, 102, 102) solid 1px;
+    color: gray;
+    background-color: white;
+    cursor: pointer;
+}
+
+#message:hover {
+    transition: 200ms;
+    border: #00B5E5 solid 1px;
+    color: #00B5E5;
+}
+
+#card_info_persional {
+    font-size: 13px;
+    color: gray;
+    margin: 5px 0 0 10px;
+}
